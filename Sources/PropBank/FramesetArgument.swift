@@ -7,7 +7,7 @@
 
 import Foundation
 
-class FramesetArgument{
+public class FramesetArgument{
     
     var __argumentType: String
     var __definition: String

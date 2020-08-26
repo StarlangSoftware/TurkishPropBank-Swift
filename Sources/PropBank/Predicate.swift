@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Predicate{
+public class Predicate{
     
     var __lemma: String
     var __roleSets: [RoleSet]

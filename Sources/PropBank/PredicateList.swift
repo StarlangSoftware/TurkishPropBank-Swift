@@ -7,7 +7,7 @@
 
 import Foundation
 
-class PredicateList: NSObject, XMLParserDelegate{
+public class PredicateList: NSObject, XMLParserDelegate{
     
     var __list: [String:Predicate] = [:]
     var newPredicate : Predicate? = nil
@@ -35,7 +35,7 @@ class PredicateList: NSObject, XMLParserDelegate{
         }
     }
     
-    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
+    public func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         if (elementName == "predicate") {
             lemma = attributeDict["lemma"]!
             newPredicate = Predicate(lemma: lemma)
@@ -60,7 +60,7 @@ class PredicateList: NSObject, XMLParserDelegate{
         }
     }
     
-    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?){
+    public func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?){
         if (elementName == "predicate"){
             self.__list[lemma] = newPredicate
         } else if (elementName == "roleset"){

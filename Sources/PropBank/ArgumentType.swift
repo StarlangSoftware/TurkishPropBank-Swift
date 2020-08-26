@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ArgumentType : String, CaseIterable{
+public enum ArgumentType : String, CaseIterable{
     case NONE
     case PREDICATE
     case ARG0

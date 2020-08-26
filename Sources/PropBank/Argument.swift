@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Argument {
+public class Argument {
     var argumentType: String
     var id: String
     

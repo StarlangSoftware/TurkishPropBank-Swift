@@ -7,7 +7,7 @@
 
 import Foundation
 
-class FramesetList{
+public class FramesetList{
     var __frames: [Frameset] = []
 
     init(){

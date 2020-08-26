@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Role{
+public class Role{
     
     var description: String
     var f: String

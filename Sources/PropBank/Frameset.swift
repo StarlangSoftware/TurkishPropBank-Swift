@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Frameset: NSObject, XMLParserDelegate{
+public class Frameset: NSObject, XMLParserDelegate{
     
     var __framesetArguments: [FramesetArgument] = []
     var __id: String = ""
@@ -22,7 +22,7 @@ class Frameset: NSObject, XMLParserDelegate{
         parser.parse()
     }
     
-    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
+    public func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         if (elementName == "FRAMESET") {
             self.__id = attributeDict["id"]!
         } else if (elementName == "ARG") {
@@ -31,7 +31,7 @@ class Frameset: NSObject, XMLParserDelegate{
         }
     }
     
-    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?){
+    public func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?){
         if (elementName == "FRAMESET"){
             value = ""
         } else if (elementName == "ARG"){
@@ -40,7 +40,7 @@ class Frameset: NSObject, XMLParserDelegate{
         }
     }
 
-    func parser(_ parser: XMLParser, foundCharacters string: String){
+    public func parser(_ parser: XMLParser, foundCharacters string: String){
         value = value + string
     }
 

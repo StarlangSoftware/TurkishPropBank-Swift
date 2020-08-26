@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ArgumentTypeStatic{
+public class ArgumentTypeStatic{
     
     /**
     The getArguments method takes an argumentsType string and returns the ArgumentType form of it.

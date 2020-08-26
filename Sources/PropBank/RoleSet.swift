@@ -7,7 +7,7 @@
 
 import Foundation
 
-class RoleSet{
+public class RoleSet{
     
     var __id: String
     var __name: String
