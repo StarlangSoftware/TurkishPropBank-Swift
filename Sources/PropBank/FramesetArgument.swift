@@ -22,7 +22,7 @@ public class FramesetArgument{
         - definition : Definition of the frameset argument
         - function : Function of the frameset argument
     */
-    init(argumentType: String, definition: String, function: String){
+    public init(argumentType: String, definition: String, function: String){
         self.__argumentType = argumentType
         self.__definition = definition
         self.__function = function

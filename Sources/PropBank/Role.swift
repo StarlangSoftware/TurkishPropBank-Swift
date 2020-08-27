@@ -22,7 +22,7 @@ public class Role{
         - f : Argument Type of the role
         - n : Number of the role
     */
-    init(description: String, f: String, n: String){
+    public init(description: String, f: String, n: String){
         self.description = description
         self.f = f
         self.n = n

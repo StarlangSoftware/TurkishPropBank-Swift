@@ -15,7 +15,7 @@ public class Frameset: NSObject, XMLParserDelegate{
     private var name: String = ""
     private var function: String = ""
 
-    init(url: URL){
+    public init(url: URL){
         super.init()
         let parser = XMLParser(contentsOf: url)!
         parser.delegate = self

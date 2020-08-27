@@ -18,7 +18,7 @@ public class Argument {
 
     - Parameter argument : Argument string containing the argumentType and id
     */
-    init(argument: String){
+    public init(argument: String){
         if argument.contains("$"){
             self.argumentType = String(argument[..<argument.range(of: "$")!.lowerBound])
             self.id = String(argument[argument.range(of: "$")!.upperBound...])
@@ -36,7 +36,7 @@ public class Argument {
         - argumentType : Type of the argument
         - _id : Id of the argument
     */
-    init(argumentType: String, _id: String){
+    public init(argumentType: String, _id: String){
         self.argumentType = argumentType
         self.id = _id
     }

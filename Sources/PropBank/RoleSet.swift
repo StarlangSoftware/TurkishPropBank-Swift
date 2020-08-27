@@ -21,7 +21,7 @@ public class RoleSet{
         - _id : Id of the roleSet
         - name : Name of the roleSet
     */
-    init(_id: String, name: String){
+    public init(_id: String, name: String){
         self.__id = _id
         self.__name = name
         self.__roles = []

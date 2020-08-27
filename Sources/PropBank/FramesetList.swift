@@ -8,9 +8,10 @@
 import Foundation
 
 public class FramesetList{
+    
     private var __frames: [Frameset] = []
 
-    init(){
+    public init(){
         let thisSourceFile = URL(fileURLWithPath: #file)
         let thisDirectory = thisSourceFile.deletingLastPathComponent()
         let url = thisDirectory.appendingPathComponent("files-turkish.txt")

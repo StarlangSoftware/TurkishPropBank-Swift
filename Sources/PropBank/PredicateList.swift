@@ -15,7 +15,7 @@ public class PredicateList: NSObject, XMLParserDelegate{
     private var newRole: Role? = nil
     private var lemma : String = ""
 
-    override init(){
+    override public init(){
         super.init()
         let thisSourceFile = URL(fileURLWithPath: #file)
         let thisDirectory = thisSourceFile.deletingLastPathComponent()

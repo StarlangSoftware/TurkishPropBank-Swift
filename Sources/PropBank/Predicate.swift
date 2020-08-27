@@ -18,7 +18,7 @@ public class Predicate{
 
     - Parameter lemma : Lemma of the predicate
     */
-    init(lemma: String){
+    public init(lemma: String){
         self.__lemma = lemma
         self.__roleSets = []
     }
