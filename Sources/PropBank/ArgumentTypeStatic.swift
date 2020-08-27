@@ -16,7 +16,7 @@ public class ArgumentTypeStatic{
 
     - Returns: Type of the argument in ArgumentType form
     */
-    static func getArguments(argumentsType: String) -> ArgumentType{
+    static public func getArguments(argumentsType: String) -> ArgumentType{
         for argumentType in ArgumentType.allCases{
             if argumentsType == argumentType.rawValue{
                 return argumentType
@@ -32,7 +32,7 @@ public class ArgumentTypeStatic{
 
     - Returns: Type of the argument in string form
     */
-    static func getPropbankType(argumentType: ArgumentType) -> String{
+    static public func getPropbankType(argumentType: ArgumentType) -> String{
         if argumentType == ArgumentType.NONE{
             return "NONE"
         }

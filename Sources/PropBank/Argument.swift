@@ -8,8 +8,8 @@
 import Foundation
 
 public class Argument {
-    var argumentType: String
-    var id: String
+    private var argumentType: String
+    private var id: String
     
     /**
     A constructor of Argument class which takes argument string which is in the form of argumentType$id
@@ -46,7 +46,7 @@ public class Argument {
 
     - Returns: argumentType.
     */
-    func getArgumentType() -> String{
+    public func getArgumentType() -> String{
         return self.argumentType
     }
 
@@ -55,7 +55,7 @@ public class Argument {
 
     - Returns: id.
     */
-    func getId() -> String{
+    public func getId() -> String{
         return self.id
     }
 
@@ -65,7 +65,7 @@ public class Argument {
 
     - Returns: string form of argument
     */
-    func description() -> String{
+    public func description() -> String{
         if self.argumentType == "NONE"{
             return self.argumentType
         } else {

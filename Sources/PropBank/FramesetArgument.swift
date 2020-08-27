@@ -33,7 +33,7 @@ public class FramesetArgument{
 
     - Returns: argumentType.
     */
-    func getArgumentType() -> String{
+    public func getArgumentType() -> String{
         return self.__argumentType
     }
 
@@ -42,7 +42,7 @@ public class FramesetArgument{
 
     - Returns: definition.
     */
-    func getDefinition() -> String{
+    public func getDefinition() -> String{
         return self.__definition
     }
 
@@ -51,7 +51,7 @@ public class FramesetArgument{
 
     - Returns: function.
     */
-    func getFunction() -> String{
+    public func getFunction() -> String{
         return self.__function
     }
 
@@ -60,7 +60,7 @@ public class FramesetArgument{
 
     - Parameter definition : definition to set.
     */
-    func setDefinition(definition: String){
+    public func setDefinition(definition: String){
         self.__definition = definition
     }
 
@@ -69,7 +69,7 @@ public class FramesetArgument{
 
     - Parameter function : function to set.
     */
-    func setFunction(function: String){
+    public func setFunction(function: String){
         self.__function = function
     }
 
@@ -79,7 +79,7 @@ public class FramesetArgument{
 
     - Returns: string form of frameset argument
     */
-    func description() -> String{
+    public func description() -> String{
         return self.__argumentType + ":" + self.__definition
     }
 

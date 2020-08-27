@@ -9,11 +9,11 @@ import Foundation
 
 public class PredicateList: NSObject, XMLParserDelegate{
     
-    var __list: [String:Predicate] = [:]
-    var newPredicate : Predicate? = nil
-    var newRoleSet : RoleSet? = nil
-    var newRole: Role? = nil
-    var lemma : String = ""
+    private var __list: [String:Predicate] = [:]
+    private var newPredicate : Predicate? = nil
+    private var newRoleSet : RoleSet? = nil
+    private var newRole: Role? = nil
+    private var lemma : String = ""
 
     override init(){
         super.init()
@@ -75,7 +75,7 @@ public class PredicateList: NSObject, XMLParserDelegate{
 
     - Returns: the size of the list dict.
     */
-    func size() -> Int{
+    public func size() -> Int{
         return self.__list.count
     }
 
@@ -86,7 +86,7 @@ public class PredicateList: NSObject, XMLParserDelegate{
 
     - Returns: Predicate which has the given lemma.
     */
-    func getPredicate(lemma: String) -> Predicate{
+    public func getPredicate(lemma: String) -> Predicate{
         return self.__list[lemma]!
     }
 
@@ -95,7 +95,7 @@ public class PredicateList: NSObject, XMLParserDelegate{
 
     - Returns: All lemma in the predicate list.
     */
-    func getLemmaList() -> [String]{
+    public func getLemmaList() -> [String]{
         return self.__list.keys.sorted()
     }
 

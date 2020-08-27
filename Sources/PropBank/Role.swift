@@ -9,9 +9,9 @@ import Foundation
 
 public class Role{
     
-    var description: String
-    var f: String
-    var n: String
+    private var description: String
+    private var f: String
+    private var n: String
 
     /**
     A constructor of Role class which takes description, f, and n as inputs and initializes corresponding with
@@ -33,7 +33,7 @@ public class Role{
 
     - Returns: description.
     */
-    func getDescription() -> String{
+    public func getDescription() -> String{
         return self.description
     }
 
@@ -42,7 +42,7 @@ public class Role{
 
     - Returns: f.
     */
-    func getF() -> String{
+    public func getF() -> String{
         return self.f
     }
 
@@ -51,7 +51,7 @@ public class Role{
 
     - Returns: n.
     */
-    func getN() -> String{
+    public func getN() -> String{
         return self.n
     }
 
@@ -60,7 +60,7 @@ public class Role{
 
     - Returns: Argument type for this role.
     */
-    func getArgumentType() -> ArgumentType{
+    public func getArgumentType() -> ArgumentType{
         return ArgumentTypeStatic.getArguments(argumentsType: "ARG" + self.f.uppercased())
     }
 

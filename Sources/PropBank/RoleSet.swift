@@ -9,9 +9,9 @@ import Foundation
 
 public class RoleSet{
     
-    var __id: String
-    var __name: String
-    var __roles: [Role]
+    private var __id: String
+    private var __name: String
+    private var __roles: [Role]
 
     /**
     A constructor of RoleSet class which takes id and name as inputs and initializes corresponding attributes
@@ -32,7 +32,7 @@ public class RoleSet{
 
     - Returns: id.
     */
-    func getId() -> String{
+    public func getId() -> String{
         return self.__id
     }
 
@@ -41,7 +41,7 @@ public class RoleSet{
 
     - Returns: name.
     */
-    func getName() -> String{
+    public func getName() -> String{
         return self.__name
     }
 
@@ -50,7 +50,7 @@ public class RoleSet{
 
     - Returns: the size of the roles list.
     */
-    func size() -> Int{
+    public func size() -> Int{
         return self.__roles.count
     }
 
@@ -59,7 +59,7 @@ public class RoleSet{
 
     - Parameter role : Role to be added
     */
-    func addRole(role: Role){
+    public func addRole(role: Role){
         self.__roles.append(role)
     }
 
@@ -70,7 +70,7 @@ public class RoleSet{
 
     - Returns: Role at the given index.
     */
-    func getRole(index: Int) -> Role{
+    public func getRole(index: Int) -> Role{
         return self.__roles[index]
     }
 
@@ -82,7 +82,7 @@ public class RoleSet{
 
     - Returns: The role with the given argument number n.
     */
-    func getRoleWithArgument(n: String) -> Role?{
+    public func getRoleWithArgument(n: String) -> Role?{
         for role in self.__roles{
             if role.getN() == n{
                 return role

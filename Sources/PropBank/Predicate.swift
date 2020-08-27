@@ -9,8 +9,8 @@ import Foundation
 
 public class Predicate{
     
-    var __lemma: String
-    var __roleSets: [RoleSet]
+    private var __lemma: String
+    private var __roleSets: [RoleSet]
 
     /**
     A constructor of Predicate class which takes lemma as input and initializes lemma with this input.
@@ -28,7 +28,7 @@ public class Predicate{
 
     - Returns: lemma.
     */
-    func getLemma() -> String{
+    public func getLemma() -> String{
         return self.__lemma
     }
 
@@ -37,7 +37,7 @@ public class Predicate{
 
     - Parameter roleSet : RoleSet to be added
     */
-    func addRoleSet(roleSet: RoleSet){
+    public func addRoleSet(roleSet: RoleSet){
         self.__roleSets.append(roleSet)
     }
 
@@ -46,7 +46,7 @@ public class Predicate{
 
     - Returns: the size of the roleSets list.
     */
-    func size() -> Int{
+    public func size() -> Int{
         return self.__roleSets.count
     }
 
@@ -57,7 +57,7 @@ public class Predicate{
 
     - Returns: RoleSet at the given index.
     */
-    func getRoleSet(index: Int) -> RoleSet{
+    public func getRoleSet(index: Int) -> RoleSet{
         return self.__roleSets[index]
     }
 
@@ -68,7 +68,7 @@ public class Predicate{
 
     - Returns: RoleSet which has the given id.
     */
-    func getRoleSetWithId(roleId: String) -> RoleSet?{
+    public func getRoleSetWithId(roleId: String) -> RoleSet?{
         for roleSet in self.__roleSets{
             if roleSet.getId() == roleId{
                 return roleSet

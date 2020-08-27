@@ -8,7 +8,7 @@
 import Foundation
 
 public class FramesetList{
-    var __frames: [Frameset] = []
+    private var __frames: [Frameset] = []
 
     init(){
         let thisSourceFile = URL(fileURLWithPath: #file)
@@ -34,7 +34,7 @@ public class FramesetList{
 
     - Returns: true if the Frameset with the given id exists, false otherwise.
     */
-    func frameExists(synSetId: String) -> Bool{
+    public func frameExists(synSetId: String) -> Bool{
         for f in self.__frames{
             if f.getId() == synSetId{
                 return true
@@ -50,7 +50,7 @@ public class FramesetList{
 
     - Returns: Frameset which has the given id.
     */
-    func getFrameSet(synSetId: String) -> Frameset?{
+    public func getFrameSet(synSetId: String) -> Frameset?{
         for f in self.__frames{
             if f.getId() == synSetId{
                 return f
@@ -66,7 +66,7 @@ public class FramesetList{
 
     - Returns: Frameset which has the given index.
     */
-    func getFrameSet(index: Int) -> Frameset{
+    public func getFrameSet(index: Int) -> Frameset{
         return self.__frames[index]
     }
 
@@ -75,7 +75,7 @@ public class FramesetList{
 
     - Parameter frameset : Frameset to be added
     */
-    func addFrameset(frameset: Frameset){
+    public func addFrameset(frameset: Frameset){
         self.__frames.append(frameset)
     }
 
@@ -84,7 +84,7 @@ public class FramesetList{
 
     - Returns: the size of the frames list.
     */
-    func size() -> Int{
+    public func size() -> Int{
         return self.__frames.count
     }
 

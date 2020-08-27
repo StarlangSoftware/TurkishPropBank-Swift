@@ -9,11 +9,11 @@ import Foundation
 
 public class Frameset: NSObject, XMLParserDelegate{
     
-    var __framesetArguments: [FramesetArgument] = []
-    var __id: String = ""
-    var value: String = ""
-    var name: String = ""
-    var function: String = ""
+    private var __framesetArguments: [FramesetArgument] = []
+    private var __id: String = ""
+    private var value: String = ""
+    private var name: String = ""
+    private var function: String = ""
 
     init(url: URL){
         super.init()
@@ -51,7 +51,7 @@ public class Frameset: NSObject, XMLParserDelegate{
 
     - Returns: true if the Argument with the given argumentType exists, false otherwise.
     */
-    func containsArgument(argumentType: ArgumentType) -> Bool{
+    public func containsArgument(argumentType: ArgumentType) -> Bool{
         for framesetArgument in self.__framesetArguments{
             if ArgumentTypeStatic.getArguments(argumentsType: framesetArgument.getArgumentType()) == argumentType{
                 return true
@@ -69,7 +69,7 @@ public class Frameset: NSObject, XMLParserDelegate{
         - definition : Definition of the new FramesetArgument
         - function: Function of the new FramesetArgument
     */
-    func addArgument(argumentType: String, definition: String, function: String){
+    public func addArgument(argumentType: String, definition: String, function: String){
         var check : Bool = false
         for framesetArgument in self.__framesetArguments{
             if framesetArgument.getArgumentType() == argumentType{
@@ -92,7 +92,7 @@ public class Frameset: NSObject, XMLParserDelegate{
         - argumentType : Type of the to be deleted FramesetArgument
         - definition : Definition of the to be deleted FramesetArgument
     */
-    func deleteArgument(argumentType: String, definition: String){
+    public func deleteArgument(argumentType: String, definition: String){
         for i in 0..<self.__framesetArguments.count{
             let framesetArgument : FramesetArgument = self.__framesetArguments[i]
             if framesetArgument.getArgumentType() == argumentType && framesetArgument.getDefinition() == definition{
@@ -107,7 +107,7 @@ public class Frameset: NSObject, XMLParserDelegate{
 
     - Returns: framesetArguments.
     */
-    func getFramesetArguments() -> [FramesetArgument]{
+    public func getFramesetArguments() -> [FramesetArgument]{
         return self.__framesetArguments
     }
 
@@ -116,7 +116,7 @@ public class Frameset: NSObject, XMLParserDelegate{
 
     - Returns: id.
     */
-    func getId() -> String{
+    public func getId() -> String{
         return self.__id
     }
 
@@ -125,7 +125,7 @@ public class Frameset: NSObject, XMLParserDelegate{
 
     - Parameter _id : id to set.
     */
-    func setId(_id: String){
+    public func setId(_id: String){
         self.__id = _id
     }
 
