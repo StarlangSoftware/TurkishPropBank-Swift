@@ -41,3 +41,31 @@ Result: The imported project is listed in the Project Explorer view and files ar
 **From IDE**
 
 After being done with the downloading and opening project, select **Build** option from **Product** menu. After compilation process, user can run TurkishPropBank-Swift.
+
+Detailed Description
+============
+
++ [FramesetList](#framesetlist)
++ [Frameset](#frameset)
+
+## FramesetList
+
+Frame listesini okumak ve tüm Frameleri hafızada tutmak için
+
+	a = FramesetList()
+
+Framesetleri tek tek gezmek için
+
+	for i in 0..<a.framesetList.size(){
+		frameset = a.getFrameset(index: i)
+	}
+
+Bir fiile ait olan Frameseti bulmak için
+
+	frameset = a.getFrameSet(synSetId: "TUR10-1234560")
+
+## Frameset
+
+Bir framesetin tüm argümanlarını bulmak için
+
+	func getFramesetArguments() -> [FramesetArgument]
