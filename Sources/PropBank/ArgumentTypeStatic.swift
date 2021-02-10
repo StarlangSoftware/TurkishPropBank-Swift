@@ -18,7 +18,7 @@ public class ArgumentTypeStatic{
     */
     static public func getArguments(argumentsType: String) -> ArgumentType{
         for argumentType in ArgumentType.allCases{
-            if argumentsType == argumentType.rawValue{
+            if argumentsType.uppercased() == argumentType.rawValue{
                 return argumentType
             }
         }
