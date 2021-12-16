@@ -17,11 +17,9 @@ public class PredicateList: NSObject, XMLParserDelegate{
 
     override public init(){
         super.init()
-        let thisSourceFile = URL(fileURLWithPath: #file)
-        let thisDirectory = thisSourceFile.deletingLastPathComponent()
-        let url = thisDirectory.appendingPathComponent("files-english.txt")
+        let url = Bundle.module.url(forResource: "files-english", withExtension: "txt")
         do{
-            let fileContent = try String(contentsOf: url, encoding: .utf8)
+            let fileContent = try String(contentsOf: url!, encoding: .utf8)
             let lines = fileContent.split(whereSeparator: \.isNewline)
             for line in lines{
                 let thisSourceFile = URL(fileURLWithPath: #file)

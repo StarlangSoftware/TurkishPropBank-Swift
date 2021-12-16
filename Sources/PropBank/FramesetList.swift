@@ -12,11 +12,9 @@ public class FramesetList{
     private var __frames: [Frameset] = []
 
     public init(){
-        let thisSourceFile = URL(fileURLWithPath: #file)
-        let thisDirectory = thisSourceFile.deletingLastPathComponent()
-        let url = thisDirectory.appendingPathComponent("files-turkish.txt")
+        let url = Bundle.module.url(forResource: "files-turkish", withExtension: "txt")
         do{
-            let fileContent = try String(contentsOf: url, encoding: .utf8)
+            let fileContent = try String(contentsOf: url!, encoding: .utf8)
             let lines = fileContent.split(whereSeparator: \.isNewline)
             for line in lines{
                 let thisSourceFile = URL(fileURLWithPath: #file)
