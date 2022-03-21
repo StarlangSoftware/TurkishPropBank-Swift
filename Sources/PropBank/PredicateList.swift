@@ -17,20 +17,10 @@ public class PredicateList: NSObject, XMLParserDelegate{
 
     override public init(){
         super.init()
-        let url = Bundle.module.url(forResource: "files-english", withExtension: "txt")
-        do{
-            let fileContent = try String(contentsOf: url!, encoding: .utf8)
-            let lines = fileContent.split(whereSeparator: \.isNewline)
-            for line in lines{
-                let thisSourceFile = URL(fileURLWithPath: #file)
-                let thisDirectory = thisSourceFile.deletingLastPathComponent()
-                let url = thisDirectory.appendingPathComponent("Frames-English/" + line)
-                let parser = XMLParser(contentsOf: url)!
-                parser.delegate = self
-                parser.parse()
-            }
-        } catch {
-        }
+        let url = Bundle.module.url(forResource: "english-propbank", withExtension: "xml")!
+        let parser = XMLParser(contentsOf: url)!
+        parser.delegate = self
+        parser.parse()
     }
     
     public func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {

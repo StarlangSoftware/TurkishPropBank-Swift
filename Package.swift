@@ -21,7 +21,7 @@ let package = Package(
         .target(
             name: "PropBank",
             dependencies: [],
-            resources: [.process("files-english.txt"),.process("files-turkish.txt")]),
+            resources: [.process("english-propbank.xml"),.process("turkish-propbank.xml")]),
         .testTarget(
             name: "PropBankTests",
             dependencies: ["PropBank"]),

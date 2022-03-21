@@ -7,43 +7,15 @@
 
 import Foundation
 
-public class Frameset: NSObject, XMLParserDelegate{
+public class Frameset{
     
     private var __framesetArguments: [FramesetArgument] = []
     private var __id: String = ""
-    private var value: String = ""
-    private var name: String = ""
-    private var function: String = ""
 
-    public init(url: URL){
-        super.init()
-        let parser = XMLParser(contentsOf: url)!
-        parser.delegate = self
-        parser.parse()
+    public init(id: String){
+        self.__id = id
     }
     
-    public func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
-        if (elementName == "FRAMESET") {
-            self.__id = attributeDict["id"]!
-        } else if (elementName == "ARG") {
-            name = attributeDict["name"]!
-            function = attributeDict["function"]!
-        }
-    }
-    
-    public func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?){
-        if (elementName == "FRAMESET"){
-            value = ""
-        } else if (elementName == "ARG"){
-            self.__framesetArguments.append(FramesetArgument(argumentType: name, definition: value, function: function))
-            value = ""
-        }
-    }
-
-    public func parser(_ parser: XMLParser, foundCharacters string: String){
-        value = value + string
-    }
-
     /**
     containsArgument method which checks if there is an Argument of the given argumentType.
 

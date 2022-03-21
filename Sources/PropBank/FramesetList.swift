@@ -7,25 +7,45 @@
 
 import Foundation
 
-public class FramesetList{
+public class FramesetList: NSObject, XMLParserDelegate{
     
     private var __frames: [Frameset] = []
+    private var frameSet: Frameset = Frameset(id: "")
+    private var value: String = ""
+    private var name: String = ""
+    private var function: String = ""
 
-    public init(){
-        let url = Bundle.module.url(forResource: "files-turkish", withExtension: "txt")
-        do{
-            let fileContent = try String(contentsOf: url!, encoding: .utf8)
-            let lines = fileContent.split(whereSeparator: \.isNewline)
-            for line in lines{
-                let thisSourceFile = URL(fileURLWithPath: #file)
-                let thisDirectory = thisSourceFile.deletingLastPathComponent()
-                let url = thisDirectory.appendingPathComponent("Frames-Turkish/" + line)
-                self.__frames.append(Frameset(url: url))
-            }
-        } catch {
+    public override init(){
+        super.init()
+        let url = Bundle.module.url(forResource: "turkish-propbank", withExtension: "xml")!
+        let parser = XMLParser(contentsOf: url)!
+        parser.delegate = self
+        parser.parse()
+    }
+    
+    public func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
+        if (elementName == "FRAMESET") {
+            frameSet = Frameset(id: attributeDict["id"]!)
+            __frames.append(frameSet)
+        } else if (elementName == "ARG") {
+            name = attributeDict["name"]!
+            function = attributeDict["function"]!
         }
     }
     
+    public func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?){
+        if (elementName == "FRAMESET"){
+            value = ""
+        } else if (elementName == "ARG"){
+            frameSet.addArgument(argumentType: name, definition: value, function: function);
+            value = ""
+        }
+    }
+
+    public func parser(_ parser: XMLParser, foundCharacters string: String){
+        value = value + string
+    }
+
     /**
     frameExists method checks if there is a Frameset with the given synSet id.
 
