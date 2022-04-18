@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class Frameset{
+public class Frameset : Hashable{
     
     private var __framesetArguments: [FramesetArgument] = []
     private var __id: String = ""
@@ -16,6 +16,14 @@ public class Frameset{
         self.__id = id
     }
     
+    public static func == (lhs: Frameset, rhs: Frameset) -> Bool {
+        return lhs.__id == rhs.__id
+    }
+
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(__id)
+    }
+
     /**
     containsArgument method which checks if there is an Argument of the given argumentType.
 
