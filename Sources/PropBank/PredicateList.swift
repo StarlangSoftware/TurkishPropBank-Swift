@@ -14,7 +14,9 @@ public class PredicateList: NSObject, XMLParserDelegate{
     private var newRoleSet : RoleSet? = nil
     private var newRole: Role? = nil
     private var lemma : String = ""
-
+    
+    /// A constructor of PredicateList class which reads all predicate files inside the 'Frames' folder. For each
+    /// file inside that folder, the constructor creates a Predicate and puts in inside the list array.
     override public init(){
         super.init()
         let url = Bundle.module.url(forResource: "english-propbank", withExtension: "xml")!
@@ -23,6 +25,13 @@ public class PredicateList: NSObject, XMLParserDelegate{
         parser.parse()
     }
     
+    /// Xml parser method called at the start of the element.
+    /// - Parameters:
+    ///   - parser: Current parser
+    ///   - elementName: Name of the element
+    ///   - namespaceURI: -
+    ///   - qName: -
+    ///   - attributeDict: Attribute list of the element
     public func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         if (elementName == "predicate") {
             lemma = attributeDict["lemma"]!
@@ -48,6 +57,12 @@ public class PredicateList: NSObject, XMLParserDelegate{
         }
     }
     
+    /// Xml parser method called at the end of the element.
+    /// - Parameters:
+    ///   - parser: Current parser
+    ///   - elementName: Name of the element
+    ///   - namespaceURI: -
+    ///   - qName: -
     public func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?){
         if (elementName == "predicate"){
             self.__list[lemma] = newPredicate

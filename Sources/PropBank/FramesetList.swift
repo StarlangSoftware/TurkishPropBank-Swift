@@ -14,7 +14,9 @@ public class FramesetList: NSObject, XMLParserDelegate{
     private var value: String = ""
     private var name: String = ""
     private var function: String = ""
-
+    
+    /// A constructor of FramesetList class which reads all frameset files inside the files.txt file. For each
+    /// filename inside that file, the constructor creates a Frameset and puts in inside the frames array.
     public override init(){
         super.init()
         let url = Bundle.module.url(forResource: "turkish-propbank", withExtension: "xml")!
@@ -23,6 +25,13 @@ public class FramesetList: NSObject, XMLParserDelegate{
         parser.parse()
     }
     
+    /// Xml parser method called at the start of the element.
+    /// - Parameters:
+    ///   - parser: Current parser
+    ///   - elementName: Name of the element
+    ///   - namespaceURI: -
+    ///   - qName: -
+    ///   - attributeDict: Attribute list of the element
     public func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         if (elementName == "FRAMESET") {
             frameSet = Frameset(id: attributeDict["id"]!)
@@ -33,6 +42,12 @@ public class FramesetList: NSObject, XMLParserDelegate{
         }
     }
     
+    /// Xml parser method called at the end of the element.
+    /// - Parameters:
+    ///   - parser: Current parser
+    ///   - elementName: Name of the element
+    ///   - namespaceURI: -
+    ///   - qName: -
     public func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?){
         if (elementName == "FRAMESET"){
             value = ""
@@ -41,7 +56,11 @@ public class FramesetList: NSObject, XMLParserDelegate{
             value = ""
         }
     }
-
+    
+    /// Xml parser method for text between elements.
+    /// - Parameters:
+    ///   - parser: Current parser
+    ///   - string: Texr to be processed.
     public func parser(_ parser: XMLParser, foundCharacters string: String){
         value = value + string
     }

@@ -11,7 +11,9 @@ public class Frameset : Hashable{
     
     private var __framesetArguments: [FramesetArgument] = []
     private var __id: String = ""
-
+    
+    /// A constructor of Frameset class which takes id as input and initializes corresponding attribute
+    /// - Parameter id: Id of the frameset
     public init(id: String){
         self.__id = id
     }
