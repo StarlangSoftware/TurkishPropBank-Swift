@@ -59,6 +59,10 @@ public class Argument {
         return self.id
     }
 
+    public func setId(id: String){
+        self.id = id
+    }
+
     /**
     __str__ converts an Argument to a string. If the argumentType is "NONE" returns only "NONE", otherwise
     it returns argument string which is in the form of argumentType$id
