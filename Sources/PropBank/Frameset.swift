@@ -51,7 +51,7 @@ public class Frameset : Hashable{
         - definition : Definition of the new FramesetArgument
         - function: Function of the new FramesetArgument
     */
-    public func addArgument(argumentType: String, definition: String, function: String){
+    public func addArgument(argumentType: String, definition: String, function: String, grammaticalCase: String){
         var check : Bool = false
         for framesetArgument in self.__framesetArguments{
             if framesetArgument.getArgumentType() == argumentType{
@@ -61,7 +61,7 @@ public class Frameset : Hashable{
             }
         }
         if !check{
-            let arg : FramesetArgument = FramesetArgument(argumentType: argumentType, definition: definition, function: function)
+            let arg : FramesetArgument = FramesetArgument(argumentType: argumentType, definition: definition, function: function, grmmaticalCase: grammaticalCase)
             self.__framesetArguments.append(arg)
         }
     }

@@ -14,6 +14,7 @@ public class FramesetList: NSObject, XMLParserDelegate{
     private var value: String = ""
     private var name: String = ""
     private var function: String = ""
+    private var grammaticalCase: String = ""
     
     /// A constructor of FramesetList class which reads all frameset files inside the files.txt file. For each
     /// filename inside that file, the constructor creates a Frameset and puts in inside the frames array.
@@ -39,6 +40,11 @@ public class FramesetList: NSObject, XMLParserDelegate{
         } else if (elementName == "ARG") {
             name = attributeDict["name"]!
             function = attributeDict["function"]!
+            if (attributeDict["grammaticalCase"] != nil){
+                grammaticalCase = attributeDict["grammaticalCase"]!
+            } else {
+                grammaticalCase = ""
+            }
         }
     }
     
@@ -52,7 +58,7 @@ public class FramesetList: NSObject, XMLParserDelegate{
         if (elementName == "FRAMESET"){
             value = ""
         } else if (elementName == "ARG"){
-            frameSet.addArgument(argumentType: name, definition: value, function: function);
+            frameSet.addArgument(argumentType: name, definition: value, function: function, grammaticalCase: grammaticalCase);
             value = ""
         }
     }
