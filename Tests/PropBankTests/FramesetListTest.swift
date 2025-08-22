@@ -9,7 +9,7 @@ final class FramesetListTest: XCTestCase {
     }
 
     func testFrames(){
-        XCTAssertEqual(17692, self.framesetList.size())
+        XCTAssertEqual(17531, self.framesetList.size())
     }
 
     func testArgSize(){
@@ -17,7 +17,7 @@ final class FramesetListTest: XCTestCase {
         for i in 0..<self.framesetList.size(){
             count += self.framesetList.getFrameSet(index: i).getFramesetArguments().count
         }
-        XCTAssertEqual(29761, count)
+        XCTAssertEqual(29473, count)
     }
 
     func testCase(){
@@ -75,13 +75,13 @@ final class FramesetListTest: XCTestCase {
                 }
             }
         }
-        XCTAssertEqual(422, caseList["abl"])
-        XCTAssertEqual(4690, caseList["acc"])
-        XCTAssertEqual(2423, caseList["dat"])
-        XCTAssertEqual(880, caseList["gen"])
-        XCTAssertEqual(459, caseList["ins"])
-        XCTAssertEqual(673, caseList["loc"])
-        XCTAssertEqual(2069, caseList["nom"])
+        XCTAssertEqual(418, caseList["abl"])
+        XCTAssertEqual(4633, caseList["acc"])
+        XCTAssertEqual(2402, caseList["dat"])
+        XCTAssertEqual(870, caseList["gen"])
+        XCTAssertEqual(451, caseList["ins"])
+        XCTAssertEqual(666, caseList["loc"])
+        XCTAssertEqual(2049, caseList["nom"])
     }
 
     func testArgName(){
@@ -95,10 +95,10 @@ final class FramesetListTest: XCTestCase {
                 }
             }
         }
-        XCTAssertEqual(14669, nameList["ARG0"])
-        XCTAssertEqual(13127, nameList["ARG1"])
-        XCTAssertEqual(1886, nameList["ARG2"])
-        XCTAssertEqual(78, nameList["ARG3"])
+        XCTAssertEqual(14535, nameList["ARG0"])
+        XCTAssertEqual(12996, nameList["ARG1"])
+        XCTAssertEqual(1865, nameList["ARG2"])
+        XCTAssertEqual(76, nameList["ARG3"])
         XCTAssertEqual(1, nameList["ARG4"])
     }
 
@@ -113,17 +113,17 @@ final class FramesetListTest: XCTestCase {
                 }
             }
         }
-        XCTAssertEqual(481, functionList["com"])
+        XCTAssertEqual(475, functionList["com"])
         XCTAssertEqual(14, functionList["ext"])
-        XCTAssertEqual(814, functionList["loc"])
-        XCTAssertEqual(198, functionList["rec"])
-        XCTAssertEqual(14, functionList["pat"])
-        XCTAssertEqual(10688, functionList["ppt"])
-        XCTAssertEqual(605, functionList["src"])
-        XCTAssertEqual(801, functionList["gol"])
+        XCTAssertEqual(808, functionList["loc"])
+        XCTAssertEqual(195, functionList["rec"])
+        XCTAssertEqual(13, functionList["pat"])
+        XCTAssertEqual(10579, functionList["ppt"])
+        XCTAssertEqual(597, functionList["src"])
+        XCTAssertEqual(794, functionList["gol"])
         XCTAssertEqual(156, functionList["tmp"])
-        XCTAssertEqual(14558, functionList["pag"])
-        XCTAssertEqual(1432, functionList["dir"])
+        XCTAssertEqual(14425, functionList["pag"])
+        XCTAssertEqual(1417, functionList["dir"])
     }
 
     static var allTests = [
